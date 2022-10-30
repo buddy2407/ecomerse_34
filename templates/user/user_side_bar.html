@@ -1,0 +1,7 @@
+
+<div class="list-group">
+    <a href="{% url 'my_dashboard' %}" class="list-group-item {% if request.path == '/my_dashboard' %} active {% endif %}">My Dashboard</a>
+    <a href="{% url 'my_orders' %}" class="list-group-item {% if request.path == '/my_orders' %} active {% endif %}">Orders</a>
+    <a href="{% url 'my_wish_list' %}" class="list-group-item {% if request.path == '/my_wish_list' %} active {% endif %}">Wishlist</a>
+    <a href="{% url 'logout' %}" class="btn btn-warning  list-group-item">Logout</a>
+</div>

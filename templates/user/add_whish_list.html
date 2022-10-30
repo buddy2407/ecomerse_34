@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-4">
+    <h3 class="my-4 pb-1 border-bottom ">Add Wish List Items</h3>
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'user/user_side_bar.html' %}
+        </div>
+        <div class="col-md-9">
+            <div class="table table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                       <th>Product Title</th>
+                        <th>Product Image</th>
+                        <th>Product Price</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for wish_list in wish_list %}
+                    <tr>
+                        <td><a href="{% url 'product_details' wish_list.product.slug wish_list.product.id  %}">{{wish_list.product.title}}</a></td>
+                        <td><img src="{{wish_list.product.productattributes_set.first.image.url}}" width="50px" height="50px">
+                            </td>
+                        <td>{{wish_list.product.productattributes_set.first.price}}</td>
+
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

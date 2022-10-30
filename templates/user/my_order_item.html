@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container my-4">
+    <h3 class="my-4 pb-1 border-bottom ">Order List Items</h3>
+    <div class="row">
+        <div class="col-md-3">
+            {% include 'user/user_side_bar.html' %}
+        </div>
+        <div class="col-md-9">
+            <div class="table table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                       <th>Invoice Number</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for order_items in order_items %}
+                    <tr>
+                        <td>{{order_items.invoice_num}}</td>
+                        <td><img src="{{order_items.image}}" width="50px" height="50px">
+                            {{order_items.item}}</td>
+                        <td>{{order_items.qty}}</td>
+                        <td>{{order_items.price}}</td>
+                        <td>{{order_items.total}}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
